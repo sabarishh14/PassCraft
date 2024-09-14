@@ -30,21 +30,33 @@ var rules = [
         "Your password must contain all the english vowels.",
         (t) => /a/i.test(t) && /e/i.test(t) && /i/i.test(t) && /o/i.test(t) && /u/i.test(t)
     ),
+    new Rule( 
+        "Your password must mention the HTTP status code for 'Not Found'", 
+        (t) => /(?:404)/i.test(t)
+    ),
     new Rule(
         "Your password must include 2-digit prime number.",
         (t) => /(?:11)|(?:13)|(?:17)|(?:19)|(?:23)|(?:29)|(?:31)|(?:37)|(?:41)|(?:43)|(?:47)|(?:53)|(?:59)|(?:61)|(?:67)|(?:71)|(?:73)|(?:79)|(?:83)|(?:89)|(?:97)/.test(t)
     ),
     new RuleSum(),
     new Rule( 
-        "Your password must include the name of \"the main event you are attending now\" \u{1F50D}", //&#x1F9A0;
+        "Your password must include the name of \"the main event you are attending now\" \u{1F50D}",
         (t) => /(?:cypherchase)|(?:invente)|(?:cypher chase )/i.test(t)
+    ),
+    new Rule( 
+        "Your password must include the an attack where hackers overload a system with traffic", 
+        (t) => /(?:ddos)/i.test(t)
+    ),
+    new Rule( 
+        "Your password must contain a security feature that requires two forms of authentication.", 
+        (t) => /(?:2fa)/i.test(t)
     ),
     new Rule( 
         "Your password must include the name of a continent.",
         (t) => /asia|europe|africa|australia|oceania|north america|south america|antarctica/i.test(t)
     ),
     new Rule( 
-        "Your password must include the year of birth of the founder",
+        "Your password must include the year of birth of te college's founder",
         (t) => /(?:1945)/.test(t)    ),
     new Rule( 
         "Your password must contain the value of pi up to first 3 decimal places.",
