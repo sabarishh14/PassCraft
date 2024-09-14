@@ -9,7 +9,6 @@ import RuleQR from "./RuleQR/RuleQR";
 import RuleSum from "./RuleSum/RuleSum";
 import RuleEarthquake from "./RuleEarthquake/RuleEarthquake";
 
-
 var rules = [
     new Rule( 
         "Your password must be at least 6 characters.",
@@ -37,28 +36,29 @@ var rules = [
     ),
     new RuleSum(),
     new Rule( 
-        "Your password must include the name of \"The power house of the cell\". \u{1F9A0}", //&#x1F9A0;
-        (t) => /(?:mitochondria)|(?:mitochondrion)/i.test(t)
+        "Your password must include the name of \"the main event you are attending now\" \u{1F50D}", //&#x1F9A0;
+        (t) => /(?:cypherchase)|(?:invente)|(?:cypher chase )/i.test(t)
     ),
     new Rule( 
         "Your password must include the name of a continent.",
         (t) => /asia|europe|africa|australia|oceania|north america|south america|antarctica/i.test(t)
     ),
     new Rule( 
-        "Your password must contain the value of pi up to first 5 decimal places.",
-        (t) => /(?:3\.14159)/.test(t)
+        "Your password must include the year of birth of the founder",
+        (t) => /(?:1945)/.test(t)    ),
+    new Rule( 
+        "Your password must contain the value of pi up to first 3 decimal places.",
+        (t) => /(?:3\.141)/.test(t)
     ),    
     
     new RuleTimeEmoji(),
-    new RuleWordle(),
-    new RuleEarthquake(),
     new RuleQR(),
     new RuleMorse(),
     new RuleLocation(),
     new RuleRiddle(),
     new Rule(
         "Your password must have as many vowels as consonants.",
-        (t) => (t.match(/[aeiou]/ig) || []).length === (t.match(/[bcdfghjklmnpqrstvwxys]/ig) || []).length
+        (t) => (t.match(/[aeiou]/ig) || []).length === (t.match(/[bcdfghjklmnpqrstvwxyz]/ig) || []).length
     ),
     new RuleSlidingPuzzle(),
     new Rule(

@@ -3,7 +3,6 @@ import React, {useRef, useEffect} from 'react';
 import "./PasswordBox.css";
 
 
-// https://www.vishalon.net/blog/javascript-getting-and-setting-caret-position-in-textarea
 function getCaretPosition(el){
     if(el.selectionStart || el.selectionStart == '0'){
         return {

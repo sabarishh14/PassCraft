@@ -5,8 +5,7 @@ import getRandomWord from "./words";
 async function getQR(word){
     
     //https://goqr.me/api/
-    let url = `https://api.qrserver.com/v1/create-qr-code/?data=${word}!&size=100x100`;
-    url = 'https://corsproxy.io/?' + encodeURIComponent(url);   // CORS proxy
+    let url = `https://api.qrserver.com/v1/create-qr-code/?data=${word}&size=100x100`;
 
     const options = {
         method: 'GET',
@@ -20,7 +19,7 @@ async function getQR(word){
 
 export default class RuleQR extends Rule{
     constructor(){
-        super("Your password must contain the word you get when you scan this QR code.");
+        super("Your password must contain the 'reverse' of word you get when you scan this QR code.");
 
         this.word = getRandomWord();
         console.log("QR word:", this.word); 
@@ -36,7 +35,9 @@ export default class RuleQR extends Rule{
     }
 
     check(txt){
-        let r = new RegExp(`(${this.word})`, "i");
+        const rstring = this.word.split("").reduce((acc, char) => char + acc, "");
+        console.log(rstring);
+        let r = new RegExp(`(${rstring})`, "i");
         return r.test(txt); 
     }
 }
