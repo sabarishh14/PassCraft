@@ -8,6 +8,14 @@ import RuleTimeEmoji from "./RuleTimeEmoji/RuleTimeEmoji";
 import RuleQR from "./RuleQR/RuleQR";
 import RuleSum from "./RuleSum/RuleSum";
 import RuleEarthquake from "./RuleEarthquake/RuleEarthquake";
+// Get today's date in DDMMYY format
+const today = new Date();
+const day = String(today.getDate()).padStart(2, '0'); // Get day with leading zero
+const month = String(today.getMonth() + 1).padStart(2, '0'); // Get month with leading zero
+const year = String(today.getFullYear()).slice(-2); // Get last two digits of the year
+
+const formattedDate = day + month + year; // Combine to form DDMMYY
+
 
 var rules = [
     new Rule( 
@@ -39,33 +47,46 @@ var rules = [
         (t) => /(?:11)|(?:13)|(?:17)|(?:19)|(?:23)|(?:29)|(?:31)|(?:37)|(?:41)|(?:43)|(?:47)|(?:53)|(?:59)|(?:61)|(?:67)|(?:71)|(?:73)|(?:79)|(?:83)|(?:89)|(?:97)/.test(t)
     ),
     new RuleSum(),
+   // Rule for including today's date
+    
     new Rule( 
-        "Your password must include the name of \"the main event you are attending now\" \u{1F50D}",
-        (t) => /(?:cypherchase)|(?:invente)|(?:cypher chase )/i.test(t)
+        "Your password must include the name of \'the main event you are attending now\' \u{1F50D}",
+        (t) => /(?:cypherchase)|(?:invente)|(?:cypher chase )|(?:[passcraft] )|(?:passcraft)/i.test(t)
     ),
     new Rule( 
-        "Your password must include the an attack where hackers overload a system with traffic", 
-        (t) => /(?:ddos)/i.test(t)
+        "Your password must include an attack where hackers overload a system with traffic", 
+        (t) => /(?:ddos)|(?:distributed denial of service)|(?:distributeddenialofservice)|(?:dos)|(?:denial of service)|(?:denialofservice)/i.test(t)
     ),
     new Rule( 
         "Your password must contain a security feature that requires two forms of authentication.", 
-        (t) => /(?:2fa)/i.test(t)
+        (t) => /(?:2fa)|(?:two factor authentication)|(?:twofactorauthentication)/i.test(t)
     ),
     new Rule( 
         "Your password must include the name of a continent.",
         (t) => /asia|europe|africa|australia|oceania|north america|south america|antarctica/i.test(t)
     ),
     new Rule( 
-        "Your password must include the year of birth of te college's founder",
-        (t) => /(?:1945)/.test(t)    ),
+        "Your password must include the year of birth of the college's founder",
+        (t) => /(?:1945)/.test(t)),
+    new Rule(
+        "Your password must include the first 5 numbers of the Fibonacci sequence.",
+        (t) => /(?:0.*1.*1.*2.*3)/.test(t)), 
+           
     new Rule( 
-        "Your password must contain the value of pi up to first 3 decimal places.",
-        (t) => /(?:3\.141)/.test(t)
-    ),    
-    
+        "Your password must contain the value of pi up to the first 3 decimal places.",
+        (t) => /(?:3\.141|3\.142)/.test(t)
+    ),     
     new RuleTimeEmoji(),
+    new Rule(
+        `Your password must contain today's date in DDMMYY format.`,
+        (t) => t.includes(formattedDate)
+    ),
     new RuleQR(),
     new RuleMorse(),
+    new Rule(
+        "Your password must contain a valid IPv4 address (e.g., '192.168.0.1').",
+        (t) => /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(t)
+    ),    
     new RuleLocation(),
     new RuleRiddle(),
     new Rule(

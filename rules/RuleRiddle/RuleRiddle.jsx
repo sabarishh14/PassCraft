@@ -11,7 +11,7 @@ const riddles = [
     ["I can be all colours or no colour at all, sometimes I'm empty, and others I'm full.", "glass"],
     ["You use me from your head to toe, the more I work, the smaller I grow.", "soap"],
     ["I'm found on people's faces, I'm something you wear, I help correct your eyesight and I come in a pair", "spectacles"],
-    [" In the heat, you see me wrong. I bring you hope but am soon gone.", "mirrage"],
+    [" In the heat, you see me wrong. I bring you hope but am soon gone.", "mirage"],
     ["Stare at me, and you may go blind. Yet, you cannot see if I don't shine.", "sun"],
     ["I am sometimes round, but not so often. I'm here every night, so I'm easily forgotten.", "moon"],
     ["I'm taken from a mine, and shut up in a wooden case, from which I'm never released, and yet I am used by almost every person. What am I?", "Pencil"],
