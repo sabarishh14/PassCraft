@@ -21,7 +21,7 @@ var rules = [
     new Rule( 
         "Your password must be at least 6 characters.",
         (t) => t?.length >= 6
-    ),
+    ),  
     new Rule( 
         "Your password must include an uppercase and a lowercase letter.",
         (t) => (/[A-Z]/.test(t) && /[a-z]/.test(t))
@@ -84,6 +84,10 @@ var rules = [
     new RuleQR(),
     new RuleMorse(), 
     new RuleLocation(),
+    new Rule(
+        "Your password must include a valid IPv4 address. Give space before IP address.",
+        (t) => /(?:\b(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/.test(t)
+    ),  
     new RuleRiddle(),
     new Rule(
         "Your password must have as many vowels as consonants.",
