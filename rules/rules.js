@@ -85,7 +85,7 @@ var rules = [
     new RuleMorse(), 
     new RuleLocation(),
     new Rule(
-        "Your password must include a valid IPv4 address. Give space before IP address.",
+        "Your password must include a valid IPv4 address. Give space before and after IP address.",
         (t) => /(?:\b(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/.test(t)
     ),  
     new RuleRiddle(),
