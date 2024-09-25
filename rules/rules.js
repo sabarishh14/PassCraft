@@ -82,11 +82,7 @@ var rules = [
         (t) => t.includes(formattedDate)
     ),
     new RuleQR(),
-    new RuleMorse(),
-    new Rule(
-        "Your password must contain a valid IPv4 address (e.g., '192.168.0.1').",
-        (t) => /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(t)
-    ),    
+    new RuleMorse(), 
     new RuleLocation(),
     new RuleRiddle(),
     new Rule(
