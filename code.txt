@@ -1,7 +1,7 @@
 USE IN CONSOLE
 
 (function() {
-            var encryptedFlag = "�°�h�����¥e�®¤�� ������¨�";
+            var encryptedFlag = "² ¤¦k«±¶¸Á°¿¢Åªl";
             var key = "CYPHERCHASE"; 
             var decryptedFlag = "";
             for (var i = 0; i < encryptedFlag.length; i++) {
